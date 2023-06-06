@@ -6,8 +6,8 @@ const resolvePath = (fileName = "users.txt") => {
   return filePath;
 };
 
-export const writeFileAsync = (USERS) => {
-  fs.writeFile(resolvePath(), JSON.stringify(USERS, null, 4), (err) => {
+export const writeFileAsync = async (USERS) => {
+  await fs.writeFile(resolvePath(), JSON.stringify(USERS, null, 4), (err) => {
     if (err) {
       return console.log(`An error has occurred: ${err}`);
     }
@@ -15,8 +15,8 @@ export const writeFileAsync = (USERS) => {
   });
 };
 
-export const readFileAsync = () => {
-  fs.readFile(resolvePath(), (err, data) => {
+export const readFileAsync = async () => {
+  await fs.readFile(resolvePath(), (err, data) => {
     if (err) {
       return console.log(`An error has occurred: ${err}`);
     } else {
@@ -26,8 +26,8 @@ export const readFileAsync = () => {
   });
 };
 
-export const copyFileAsync = () => {
-  fs.copyFile(resolvePath(), resolvePath("usersCopy.txt"), (err) => {
+export const copyFileAsync = async () => {
+  await fs.copyFile(resolvePath(), resolvePath("usersCopy.txt"), (err) => {
     if (err) {
       return console.log(`An error has occurred: ${err}`);
     }
